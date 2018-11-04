@@ -11,7 +11,7 @@ def interrupt_handler(sig, frame):
 
 
 def error_exit(reason):
-    print(reason)
+    sys.stderr.write(reason + '\n')
     sys.exit(1)
 
 
