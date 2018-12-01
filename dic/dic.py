@@ -16,13 +16,14 @@ def error_exit(reason):
 
 
 def print_usage():
+    sys.stderr.write('usage: d <keyword>\n')
     sys.exit(1)
 
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, interrupt_handler)
 
-    if not sys.argv[1]:
+    if len(sys.argv) < 2 or not sys.argv[1]:
         print_usage()
 
     try:
