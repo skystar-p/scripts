@@ -26,8 +26,10 @@ if __name__ == '__main__':
     if len(sys.argv) < 2 or not sys.argv[1]:
         print_usage()
 
+    query = ' '.join(sys.argv[1:])
+
     try:
-        r = requests.get(URL.format(sys.argv[1]))
+        r = requests.get(URL.format(query))
         s = r.content
     except requests.exceptions.ConnectionError:
         error_exit('No network connection')
