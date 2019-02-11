@@ -28,4 +28,6 @@ fi
 
 CODE=$(cat $FILE | gpg --decrypt --quiet 2>/dev/null)
 
-oathtool --base32 --totp "$CODE"
+TOKEN=$(oathtool --base32 --totp "$CODE")
+echo -n $TOKEN | xclip -selection clipboard
+echo $TOKEN
