@@ -19,7 +19,7 @@ if [[ $# -ne 1 ]]; then
     exit 1
 fi
 
-readonly FILE="$DIR/sites/$SITE.encrypted"
+readonly FILE="$DIR/sites/$SITE.gpg"
 
 if ! [[ -f $FILE ]]; then
     errecho "No such site"
