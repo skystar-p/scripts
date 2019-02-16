@@ -24,7 +24,7 @@ if [[ $# -ne 3 ]]; then
     exit 1
 fi
 
-readonly BANK_FILE="$DIR/$BANK.encrypted"
+readonly BANK_FILE="$DIR/banks/$BANK.gpg"
 
 if ! [[ -f $BANK_FILE  ]]; then
     errecho "No such bank"
