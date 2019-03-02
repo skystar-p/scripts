@@ -2,20 +2,21 @@
 
 import secrets
 import string
-import sys
+import argparse
 
 
-if len(sys.argv) < 2:
-    sys.stderr.write('usage: pwgen <length>\n')
-    exit(1)
+parser = argparse.ArgumentParser()
+parser.add_argument('--special', '-s',
+                    action='store_true', help='add special characters')
+parser.add_argument('length', help='password length')
+args = parser.parse_args()
 
-try:
-    length = int(sys.argv[1])
-except ValueError:
-    sys.stderr.write('usage: pwgen <length>\n')
-    exit(1)
+length = int(args.length)
 
 charset = string.ascii_letters + string.digits
+if args.special:
+    charset += string.punctuation
+
 password = ''
 
 for _ in range(length):
